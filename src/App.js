@@ -16,29 +16,37 @@ const App = () => {
 
   return (
     <div>
-      <Navbar setNavbarHeight={setNavbarHeight} />
-      <Routes>
-        <Route path="/" element={<Home navbarHeight={navbarHeight} />} />
-        <Route
-          path="/services"
-          element={<Services navbarHeight={navbarHeight} />}
-        />
-        <Route
-          path="/mechanics"
-          element={<Mechanics navbarHeight={navbarHeight} />}
-        />
-        <Route path="/about" element={<About navbarHeight={navbarHeight} />} />
-        <Route
-          path="/contact"
-          element={<Contact navbarHeight={navbarHeight} />}
-        />
-        <Route path="/login" element={<Login navbarHeight={navbarHeight} />} />
-        <Route
-          path="/register"
-          element={<Register navbarHeight={navbarHeight} />}
-        />
-        <Route path="*" element={<NotFound navbarHeight={navbarHeight} />} />
-      </Routes>
+      <div className="min-h-screen">
+        <Navbar setNavbarHeight={setNavbarHeight} />
+        <Routes>
+          <Route path="/" element={<Home navbarHeight={navbarHeight} />} />
+          <Route
+            path="/services"
+            element={<Services navbarHeight={navbarHeight} />}
+          />
+          <Route
+            path="/mechanics"
+            element={<Mechanics navbarHeight={navbarHeight} />}
+          />
+          <Route
+            path="/about"
+            element={<About navbarHeight={navbarHeight} />}
+          />
+          <Route
+            path="/contact"
+            element={<Contact navbarHeight={navbarHeight} />}
+          />
+          <Route
+            path="/login"
+            element={<Login navbarHeight={navbarHeight} />}
+          />
+          <Route
+            path="/register"
+            element={<Register navbarHeight={navbarHeight} />}
+          />
+          <Route path="*" element={<NotFound navbarHeight={navbarHeight} />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );
