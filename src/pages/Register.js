@@ -1,14 +1,30 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../firebase.init";
+import { toast } from "react-hot-toast";
 
 const Register = ({ navbarHeight }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
-    console.log(name, email, password);
+
+    createUserWithEmailAndPassword(email, password);
+
+    if (!error) {
+      navigate("/");
+      toast.success("Account created successfully!");
+    }
+
+    if (error) {
+      toast.error("Account created failed!");
+    }
 
     setName("");
     setEmail("");

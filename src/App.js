@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Services from "./components/Services";
 import Mechanics from "./components/Mechanics";
 import ServiceDetail from "./pages/ServiceDetail";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const [navbarHeight, setNavbarHeight] = useState("");
@@ -18,6 +19,7 @@ const App = () => {
   return (
     <div>
       <div className="min-h-screen">
+        <Toaster position="left-bottom" reverseOrder={false} />
         <Navbar setNavbarHeight={setNavbarHeight} />
         <Routes>
           <Route path="/" element={<Home navbarHeight={navbarHeight} />} />
