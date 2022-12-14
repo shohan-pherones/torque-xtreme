@@ -2,7 +2,11 @@ import Service from "./Service";
 import { useFetch } from "../hooks/useFetch";
 
 const Services = ({ navbarHeight }) => {
-  const { data: services, loading, error } = useFetch("services.json");
+  const {
+    data: services,
+    loading,
+    error,
+  } = useFetch("http://localhost:5000/services");
 
   return (
     <div
@@ -15,7 +19,7 @@ const Services = ({ navbarHeight }) => {
           <p>{error ? error : "Loading..."}</p>
         ) : (
           services?.map((service) => (
-            <Service key={service.id} service={service} />
+            <Service key={service._id} service={service} />
           ))
         )}
       </div>

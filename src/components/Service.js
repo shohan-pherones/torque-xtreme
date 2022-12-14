@@ -22,7 +22,7 @@ const Service = ({ service }) => {
         <p>{service.description?.substring(0, 100)}...</p>
         <div className="card-actions justify-between items-center">
           <h2 className="card-title">{currencyFormatter(service.price)}</h2>
-          <Link to={`/service/${service.id}`} className="btn btn-secondary">
+          <Link to={`/service/${service._id}`} className="btn btn-secondary">
             Book Now
           </Link>
         </div>
