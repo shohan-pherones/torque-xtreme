@@ -2,7 +2,11 @@ const Mechanic = ({ mechanic }) => {
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure className="px-10 pt-10">
-        <img src={mechanic.image} alt={mechanic.title} className="rounded-xl" />
+        <img
+          src={mechanic.image}
+          alt={mechanic.title}
+          className="rounded-xl w-full h-48 object-cover"
+        />
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title">{mechanic.name}</h2>
