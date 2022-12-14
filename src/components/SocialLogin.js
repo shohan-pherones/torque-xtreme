@@ -2,26 +2,28 @@ import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
 import {
   useSignInWithGoogle,
   useSignInWithGithub,
+  useSignInWithFacebook,
 } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import { useNavigate } from "react-router-dom";
-import "../components/Spinner";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 
 const SocialLogin = ({ label }) => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const [signInWithGithub, user2, loading2, error2] = useSignInWithGithub(auth);
+  const [signInWithFacebook, user3, loading3, error3] =
+    useSignInWithFacebook(auth);
 
   const navigate = useNavigate();
 
   let errorEl;
 
-  if (loading || loading2) {
+  if (loading || loading2 || loading3) {
     return <Spinner />;
   }
 
-  if (error || error2) {
+  if (error || error2 || error3) {
     errorEl = (
       <div className="alert alert-error shadow-lg">
         <div>
@@ -38,13 +40,13 @@ const SocialLogin = ({ label }) => {
               d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <span>{error?.message || error2?.message}</span>
+          <span>{error?.message || error2?.message || error3?.message}</span>
         </div>
       </div>
     );
   }
 
-  if (user || user2) {
+  if (user || user2 || user3) {
     navigate("/");
     toast.success("You're logged in!");
   }
@@ -58,7 +60,10 @@ const SocialLogin = ({ label }) => {
       >
         <BsGoogle /> {label} with Google
       </button>
-      <button className="btn btn-secondary flex items-center gap-2">
+      <button
+        onClick={() => signInWithFacebook()}
+        className="btn btn-secondary flex items-center gap-2"
+      >
         <BsFacebook /> {label} with Facebook
       </button>
       <button
