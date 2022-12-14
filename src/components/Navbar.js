@@ -1,13 +1,22 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../firebase.init";
+import { signOut } from "firebase/auth";
 
 const Navbar = ({ setNavbarHeight }) => {
   const navbarRef = useRef(null);
+
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
     const height = navbarRef.current.getBoundingClientRect().height;
     setNavbarHeight(height);
   }, []);
+
+  const handleLogout = () => {
+    signOut(auth);
+  };
 
   return (
     <div
@@ -77,9 +86,15 @@ const Navbar = ({ setNavbarHeight }) => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login" className="btn">
-          Login
-        </Link>
+        {user ? (
+          <button onClick={handleLogout} className="btn btn-secondary">
+            Logout
+          </button>
+        ) : (
+          <Link to="/login" className="btn btn-info">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

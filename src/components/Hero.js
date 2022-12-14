@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   return (
     <div
@@ -18,9 +20,9 @@ const Hero = () => {
             follow their advice. If you don't intend to follow their advice, you
             simply don't trust them.
           </p>
-          <button className="btn btn-primary text-xl">
+          <Link to="/services" className="btn btn-primary text-xl">
             Let's repair your car
-          </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 
 const ServiceDetail = ({ navbarHeight }) => {
@@ -6,7 +6,14 @@ const ServiceDetail = ({ navbarHeight }) => {
 
   const { data: service, loading, error } = useFetch(`url/${id}`);
 
-  return <div style={{ marginTop: `${navbarHeight}px` }}>ServiceDetail</div>;
+  return (
+    <div style={{ marginTop: `${navbarHeight}px` }}>
+      <h2>ServiceDetail: {id}</h2>
+      <Link to="/checkout" className="btn btn-secondary">
+        Checkout
+      </Link>
+    </div>
+  );
 };
 
 export default ServiceDetail;

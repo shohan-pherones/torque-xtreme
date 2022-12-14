@@ -10,8 +10,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Services from "./components/Services";
 import Mechanics from "./components/Mechanics";
+import RequireAuth from "./components/RequireAuth";
 import ServiceDetail from "./pages/ServiceDetail";
-import { Toaster } from "react-hot-toast";
+import Checkout from "./pages/Checkout";
 
 const App = () => {
   const [navbarHeight, setNavbarHeight] = useState("");
@@ -19,7 +20,6 @@ const App = () => {
   return (
     <div>
       <div className="min-h-screen">
-        <Toaster position="left-bottom" reverseOrder={false} />
         <Navbar setNavbarHeight={setNavbarHeight} />
         <Routes>
           <Route path="/" element={<Home navbarHeight={navbarHeight} />} />
@@ -50,6 +50,14 @@ const App = () => {
           <Route
             path="/register"
             element={<Register navbarHeight={navbarHeight} />}
+          />
+          <Route
+            path="/checkout"
+            element={
+              <RequireAuth>
+                <Checkout navbarHeight={navbarHeight} />
+              </RequireAuth>
+            }
           />
           <Route path="*" element={<NotFound navbarHeight={navbarHeight} />} />
         </Routes>
