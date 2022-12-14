@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Oil Change",
+    "description": "Engine oil is the lifeblood of the engine. The oil resides in the oil pan, which is under the car attached to the bottom of the engine. All internal (moving) parts of the engine need to be lubricated by the engine oil. Inadequate lubrication will cause the parts to wear out faster and eventually lead to engine failure. An oil filter keeps the oil clean and free of debris. If the filter is not replaced on a regular basis, it will get clogged and will not be able to pass oil into the engine.",
+    "price": 99,
+    "image": "https://i.ibb.co/grzKwcw/Oil-Change.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Brake Pad Replacement",
+    "description": "Brake pads consist of friction material that is bonded to a sturdy steel backing plate. When you push on the brake pedal, the friction material on the brake pads is forced against the inner and outer surfaces of the steel brake rotor under tremendous pressure. The resulting friction causes the wheels on your car to slow rapidly allowing for a quick, safe and controlled stop. After thousands of miles, this friction material eventually wears away, and the brake rotor wears away as well, requiring replacement.",
+    "price": 115,
+    "image": "https://i.ibb.co/z5yJxmp/Brake-Pad-Replacement.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Wheel Bearings Replacement",
+    "description": "A wheel bearing assembly consists of rolling elements, such as hardened steel ball bearings or roller bearings, that roll on and around hardened steel bearing races. The wheel bearings support the front and rear axle, and all the weight of your car. Wheel bearings are made with a high-precision technique using extremely hard steel in order to withstand all the normal impacts that occur to the wheel and tire assembly as you drive along the road.",
+    "price": 75,
+    "image": "https://i.ibb.co/DgFMtYB/Wheel-Bearings-Replacement.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Car Thermostat Replacement",
+    "description": "The car's engine cooling system thermostat is a small valve within a cooling system passageway that opens and closes in response to the temperature of the circulating engine coolant. When your car is first started and the coolant is cold, the valve in the thermostat will be in the closed position, circulating the coolant flow only within the engine instead of flowing to the radiator, which allows the engine to warm up fast, promoting fuel efficiency, low emissions, and reduced engine deposits. Once the engine coolant reaches the design temperature, usually around 195 degrees, the valve will open and close as you drive in order to maintain a coolant temperature typically between 195 to 225 degrees Fahrenheit.",
+    "price": 180,
+    "image": "https://i.ibb.co/JtV8KG8/Car-Thermostat-Replacement.webp"
+  },
+  {
+    "id": 5,
+    "title": "Oxygen Sensor Replacement",
+    "description": "With each new model year, manufacturers are adding more oxygen sensors to better manage engine operation. Some high performance engines have an oxygen sensor for each cylinder as well as one for the rear of each catalytic convertor. The sensors are located either underneath the hood or underneath the car. The oxygen sensors are connected (screwed) to the exhaust pipe, either in front or back of the catalytic converter. The front (upstream) sensors measure the amount of oxygen in the exhaust system. The purpose of the front oxygen sensor(s) is to measure how rich or lean the gases are as the gases exit the combustion chamber. Depending upon whether the exhaust gas is lean (high in oxygen content) or rich (low in oxygen content), the amount of fuel entering the engine is adjusted by the engine management computer to try and maintain an ideal mixture that produces the lowest emissions output from the catalytic convertor.",
+    "price": 165,
+    "image": "https://i.ibb.co/jv7WZDr/Oxygen-Sensor-Replacement.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Valve Cover Gasket Replacement",
+    "description": "Each cylinder head on your car’s engine has an aluminum or plastic valve cover bolted to it. Between this valve cover and the cylinder head, there is a gasket that keeps engine oil from leaking out. The valve cover bolts keep the gasket compressed, thus preventing leaks. Over time the gasket becomes brittle from the engine’s heat or the bolts loosen, creating an engine oil leak.",
+    "price": 220,
+    "image": "https://i.ibb.co/89zx2ZV/Valve-Cover-Gasket-Replacement.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Car Radiator Replacement",
+    "description": "The radiator performs a critical function; it keeps the engine from overheating. While running, the engine produces heat. Coolant flowing through the system absorbs and removes extra heat from the engine. The coolant then passes through the radiator where it cools off and is later circulated back to the engine to absorb heat again.",
+    "price": 152,
+    "image": "https://i.ibb.co/1LSH2G0/Car-Radiator-Replacement.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Fuel Pump Replacement",
+    "description": "The fuel pump supplies pressurized gasoline to each of the fuel injectors in a car’s engine. The fuel pump is powered by a compact electric motor and is located in the vehicle’s gas tank. The pressure and output of the pump are controlled by a regulator. Filtration of the fuel occurs either in the fuel tank using a pickup screen or externally with a replaceable filter mounted in the fuel supply line.",
+    "price": 85,
+    "image": "https://i.ibb.co/QmT6MGB/Fuel-Pump-Replacement.jpg"
+  }
+]
