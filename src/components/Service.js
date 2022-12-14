@@ -20,7 +20,7 @@ const Service = ({ service }) => {
         <p>{service.description?.substring(0, 100)}...</p>
         <div className="card-actions justify-between items-center">
           <h2 className="card-title">{currencyFormatter(service.price)}</h2>
-          <button className="btn btn-primary">Book Now</button>
+          <button className="btn btn-secondary">Book Now</button>
         </div>
       </div>
     </div>
