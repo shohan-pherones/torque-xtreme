@@ -1,15 +1,20 @@
 import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithGoogle,
+  useSignInWithGithub,
+} from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import { useNavigate } from "react-router-dom";
 
 const SocialLogin = ({ label }) => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGithub, user2, loading2, error2] = useSignInWithGithub(auth);
+
   const navigate = useNavigate();
 
   let errorEl;
 
-  if (error) {
+  if (error || error2) {
     errorEl = (
       <div className="alert alert-error shadow-lg">
         <div>
@@ -26,13 +31,13 @@ const SocialLogin = ({ label }) => {
               d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <span>{error.message}</span>
+          <span>{error?.message || error2?.message}</span>
         </div>
       </div>
     );
   }
 
-  if (user) {
+  if (user || user2) {
     navigate("/");
   }
 
@@ -48,7 +53,10 @@ const SocialLogin = ({ label }) => {
       <button className="btn btn-secondary flex items-center gap-2">
         <BsFacebook /> {label} with Facebook
       </button>
-      <button className="btn btn-secondary flex items-center gap-2">
+      <button
+        onClick={() => signInWithGithub()}
+        className="btn btn-secondary flex items-center gap-2"
+      >
         <BsGithub /> {label} with GitHub
       </button>
       <div className="divider">OR</div>

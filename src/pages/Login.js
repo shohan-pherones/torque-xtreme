@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import SocialLogin from "../components/SocialLogin";
 
@@ -13,8 +16,34 @@ const Login = ({ navbarHeight }) => {
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
   const navigate = useNavigate();
+
+  let errorEl;
+
+  if (error) {
+    errorEl = (
+      <div className="alert alert-error shadow-lg">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="stroke-current flex-shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span>{error.message}</span>
+        </div>
+      </div>
+    );
+  }
 
   if (user) {
     navigate(from, { replace: true });
@@ -27,6 +56,10 @@ const Login = ({ navbarHeight }) => {
 
     setEmail("");
     setPassword("");
+  };
+
+  const resetPassword = async () => {
+    await sendPasswordResetEmail(email);
   };
 
   return (
@@ -70,9 +103,18 @@ const Login = ({ navbarHeight }) => {
                 placeholder="write your password"
                 className="input input-bordered"
               />
+              <label className="label self-start">
+                <button onClick={resetPassword} className="link link-hover">
+                  Forgot password?
+                </button>
+              </label>
             </div>
             <div className="form-control mt-6">
-              <button type="submit" className="btn btn-primary">
+              <button
+                onClick={handleLogin}
+                type="submit"
+                className="btn btn-primary"
+              >
                 Login
               </button>
               <p className="pt-2">
@@ -87,6 +129,7 @@ const Login = ({ navbarHeight }) => {
             </div>
           </form>
         </div>
+        {errorEl}
       </div>
     </div>
   );

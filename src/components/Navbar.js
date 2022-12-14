@@ -85,7 +85,10 @@ const Navbar = ({ setNavbarHeight }) => {
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end flex items-center gap-5">
+        {user?.displayName && (
+          <p className="font-medium">Hello, {user.displayName}</p>
+        )}
         {user ? (
           <button onClick={handleLogout} className="btn btn-secondary">
             Logout

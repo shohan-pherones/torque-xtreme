@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import SocialLogin from "../components/SocialLogin";
 
@@ -8,20 +11,25 @@ const Register = ({ navbarHeight }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
 
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile, updating, error2] = useUpdateProfile(auth);
 
   const navigate = useNavigate();
 
   if (user) {
-    navigate("/");
+    console.log(user);
   }
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
-    createUserWithEmailAndPassword(email, password);
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
+    console.log("update profile");
+    navigate("/");
 
     setName("");
     setEmail("");
@@ -82,8 +90,24 @@ const Register = ({ navbarHeight }) => {
                 className="input input-bordered"
               />
             </div>
+            <div className="form-control">
+              <label className="cursor-pointer label justify-start gap-2">
+                <input
+                  type="checkbox"
+                  value={isChecked}
+                  onChange={(e) => setIsChecked(e.target.checked)}
+                  className="checkbox checkbox-info"
+                />
+                <span className="label-text">
+                  Accept our terms and conditions
+                </span>
+              </label>
+            </div>
             <div className="form-control mt-6">
-              <button type="submit" className="btn btn-primary">
+              <button
+                type="submit"
+                className={`btn ${isChecked ? "btn-primary" : "btn-disabled"}`}
+              >
                 Create account
               </button>
               <p className="pt-2">
