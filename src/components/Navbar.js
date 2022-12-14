@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import { signOut } from "firebase/auth";
+import { toast } from "react-toastify";
 
 const Navbar = ({ setNavbarHeight }) => {
   const navbarRef = useRef(null);
@@ -16,6 +17,7 @@ const Navbar = ({ setNavbarHeight }) => {
 
   const handleLogout = () => {
     signOut(auth);
+    toast.info("You're logged out!");
   };
 
   return (

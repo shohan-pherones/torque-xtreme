@@ -13,6 +13,8 @@ import Mechanics from "./components/Mechanics";
 import RequireAuth from "./components/RequireAuth";
 import ServiceDetail from "./pages/ServiceDetail";
 import Checkout from "./pages/Checkout";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const [navbarHeight, setNavbarHeight] = useState("");
@@ -20,6 +22,18 @@ const App = () => {
   return (
     <div>
       <div className="min-h-screen">
+        <ToastContainer
+          position="bottom-left"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
         <Navbar setNavbarHeight={setNavbarHeight} />
         <Routes>
           <Route path="/" element={<Home navbarHeight={navbarHeight} />} />

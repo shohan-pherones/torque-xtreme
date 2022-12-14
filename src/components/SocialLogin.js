@@ -5,6 +5,9 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import { useNavigate } from "react-router-dom";
+import "../components/Spinner";
+import Spinner from "../components/Spinner";
+import { toast } from "react-toastify";
 
 const SocialLogin = ({ label }) => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -13,6 +16,10 @@ const SocialLogin = ({ label }) => {
   const navigate = useNavigate();
 
   let errorEl;
+
+  if (loading || loading2) {
+    return <Spinner />;
+  }
 
   if (error || error2) {
     errorEl = (
@@ -39,6 +46,7 @@ const SocialLogin = ({ label }) => {
 
   if (user || user2) {
     navigate("/");
+    toast.success("You're logged in!");
   }
 
   return (

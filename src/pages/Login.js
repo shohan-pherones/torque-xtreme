@@ -6,6 +6,8 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import SocialLogin from "../components/SocialLogin";
+import Spinner from "../components/Spinner";
+import { toast } from "react-toastify";
 
 const Login = ({ navbarHeight }) => {
   const [email, setEmail] = useState("");
@@ -45,8 +47,13 @@ const Login = ({ navbarHeight }) => {
     );
   }
 
+  if (loading || sending) {
+    return <Spinner />;
+  }
+
   if (user) {
     navigate(from, { replace: true });
+    toast.success("You're logged in!");
   }
 
   const handleLogin = (e) => {
@@ -60,6 +67,12 @@ const Login = ({ navbarHeight }) => {
 
   const resetPassword = async () => {
     await sendPasswordResetEmail(email);
+    if (email) {
+      toast.success("Verification email sent!");
+      setEmail("");
+    } else {
+      toast.error("Please enter your email address!");
+    }
   };
 
   return (
