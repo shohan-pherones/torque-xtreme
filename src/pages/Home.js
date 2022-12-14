@@ -2,9 +2,9 @@ import Hero from "../components/Hero";
 import Mechanics from "../components/Mechanics";
 import Services from "../components/Services";
 
-const Home = () => {
+const Home = ({ navbarHeight }) => {
   return (
-    <div>
+    <div style={{ marginTop: `${navbarHeight}px` }}>
       <Hero />
       <Services />
       <Mechanics />

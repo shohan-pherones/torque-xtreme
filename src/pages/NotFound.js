@@ -1,5 +1,5 @@
-const NotFound = () => {
-  return <div>NotFound</div>;
+const NotFound = ({ navbarHeight }) => {
+  return <div style={{ marginTop: `${navbarHeight}px` }}>NotFound</div>;
 };
 
 export default NotFound;

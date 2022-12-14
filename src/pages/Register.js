@@ -1,5 +1,5 @@
-const Register = () => {
-  return <div>Register</div>;
+const Register = ({ navbarHeight }) => {
+  return <div style={{ marginTop: `${navbarHeight}px` }}>Register</div>;
 };
 
 export default Register;
