@@ -91,7 +91,7 @@ const Navbar = ({ setNavbarHeight }) => {
             Logout
           </button>
         ) : (
-          <Link to="/login" className="btn btn-info">
+          <Link to="/login" className="btn btn-accent">
             Login
           </Link>
         )}

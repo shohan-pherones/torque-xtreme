@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
+import SocialLogin from "../components/SocialLogin";
 
 const Login = ({ navbarHeight }) => {
   const [email, setEmail] = useState("");
@@ -30,7 +31,7 @@ const Login = ({ navbarHeight }) => {
 
   return (
     <div
-      className="hero min-h-screen bg-base-200"
+      className="hero min-h-screen bg-base-100"
       style={{ marginTop: `${navbarHeight}px` }}
     >
       <div className="hero-content flex-col">
@@ -41,6 +42,7 @@ const Login = ({ navbarHeight }) => {
             services.
           </p>
         </div>
+        <SocialLogin label="Login" />
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form className="card-body" onSubmit={handleLogin}>
             <div className="form-control">
@@ -77,7 +79,7 @@ const Login = ({ navbarHeight }) => {
                 Don't have an account?{" "}
                 <Link
                   to="/register"
-                  className="text-info underline underline-offset-2 hover:text-secondary"
+                  className="text-info underline underline-offset-2 hover:text-secondary font-medium"
                 >
                   Register
                 </Link>
