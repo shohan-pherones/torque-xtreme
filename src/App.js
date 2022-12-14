@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Services from "./components/Services";
 import Mechanics from "./components/Mechanics";
+import ServiceDetail from "./pages/ServiceDetail";
 
 const App = () => {
   const [navbarHeight, setNavbarHeight] = useState("");
@@ -23,6 +24,10 @@ const App = () => {
           <Route
             path="/services"
             element={<Services navbarHeight={navbarHeight} />}
+          />
+          <Route
+            path="/service/:id"
+            element={<ServiceDetail navbarHeight={navbarHeight} />}
           />
           <Route
             path="/mechanics"

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Service = ({ service }) => {
   const currencyFormatter = (price) => {
     return price?.toLocaleString("en-US", {
@@ -20,7 +22,9 @@ const Service = ({ service }) => {
         <p>{service.description?.substring(0, 100)}...</p>
         <div className="card-actions justify-between items-center">
           <h2 className="card-title">{currencyFormatter(service.price)}</h2>
-          <button className="btn btn-secondary">Book Now</button>
+          <Link to={`/service/${service.id}`} className="btn btn-secondary">
+            Book Now
+          </Link>
         </div>
       </div>
     </div>
