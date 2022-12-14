@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "James Ghillan",
+    "speciality": "James is responsible for troubleshooting issues and fixing them aiming to maximum reliability and functionality. He is an excellent auto mechanic has good eye-hand coordination and manual dexterity.",
+    "image": "https://i.ibb.co/c3fzVdR/James-Ghillan.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Philip Karl",
+    "speciality": "Karl is responsible for vehicle design, development, manufacture and testing.",
+    "image": "https://i.ibb.co/xSYtzd9/Philip-Karl.png"
+  },
+  {
+    "id": 3,
+    "name": "Robert Pearl",
+    "speciality": "Robert is inspecting the vehicle's mechanical components and its engine, diagnosing problems with vehicles and performing maintenance and repair work on cars, trucks and other vehicles.",
+    "image": "https://i.ibb.co/Kx6GcT8/Robert-Pearl.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Jessie Nelson",
+    "speciality": "Jessie is inspecting vehicle engine and mechanical/electrical components to diagnose issues accurately. Also inspecting vehicle computer and electronic systems to repair, maintain and upgrade. Conducting routine maintenance work aiming to vehicle functionality and longevity.",
+    "image": "https://i.ibb.co/2tLNP23/Jessie-Nelson.jpg"
+  }
+]

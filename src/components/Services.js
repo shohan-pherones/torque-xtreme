@@ -1,28 +1,8 @@
-import { useEffect, useState } from "react";
 import Service from "./Service";
+import { useFetch } from "../hooks/useFetch";
 
 const Services = () => {
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    const getServices = async () => {
-      try {
-        setLoading(true);
-        const res = await fetch("services.json");
-        if (!res.ok)
-          throw new Error("Something went wrong, please try again later.");
-        const data = await res.json();
-        setServices(data);
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
-
-    getServices();
-  }, []);
+  const { data: services, loading, error } = useFetch("services.json");
 
   return (
     <div className="container mx-auto py-20">
