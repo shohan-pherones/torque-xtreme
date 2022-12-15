@@ -25,7 +25,7 @@ const ServiceDetail = ({ navbarHeight }) => {
           <p className="py-6 text-lg">{service?.description}</p>
           <div className="flex gap-10 items-center">
             <span className="text-2xl font-semibold">
-              {currencyFormatter(service?.price)}
+              {currencyFormatter(+service?.price)}
             </span>
             <Link to="/checkout" className="btn btn-secondary">
               Proceed to checkout

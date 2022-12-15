@@ -54,6 +54,16 @@ const Navbar = ({ setNavbarHeight }) => {
             <li>
               <Link to="/services">Services</Link>
             </li>
+            {user ? (
+              <li>
+                <Link to="/add-service">Add Service</Link>
+              </li>
+            ) : null}
+            {user ? (
+              <li>
+                <Link to="/manage-services">Manage Services</Link>
+              </li>
+            ) : null}
             <li>
               <Link to="/mechanics">Mechanics</Link>
             </li>
@@ -77,6 +87,16 @@ const Navbar = ({ setNavbarHeight }) => {
           <li>
             <Link to="/services">Services</Link>
           </li>
+          {user ? (
+            <li>
+              <Link to="/add-service">Add Service</Link>
+            </li>
+          ) : null}
+          {user ? (
+            <li>
+              <Link to="/manage-services">Manage Services</Link>
+            </li>
+          ) : null}
           <li>
             <Link to="/mechanics">Mechanics</Link>
           </li>

@@ -21,7 +21,7 @@ const RequireAuth = ({ children }) => {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  if (!user.emailVerified) {
+  if (user.providerData[0]?.providerId === "password" && !user.emailVerified) {
     return (
       <div className="mt-32 flex flex-col gap-5 items-center">
         <h3 className="text-xl">
