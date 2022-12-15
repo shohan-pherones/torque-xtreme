@@ -27,7 +27,7 @@ const ServiceDetail = ({ navbarHeight }) => {
             <span className="text-2xl font-semibold">
               {currencyFormatter(+service?.price)}
             </span>
-            <Link to="/checkout" className="btn btn-secondary">
+            <Link to={`/checkout/${id}`} className="btn btn-secondary">
               Proceed to checkout
             </Link>
           </div>

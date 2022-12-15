@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import { useFetch } from "../hooks/useFetch";
 import { currencyFormatter } from "../utilities/currencyFormatter";
+import PageTitle from "../components/PageTitle";
 
 const ManageServices = ({ navbarHeight }) => {
   const { data: services, setData: setServices } = useFetch(
@@ -28,6 +29,7 @@ const ManageServices = ({ navbarHeight }) => {
       style={{ marginTop: `${navbarHeight}px` }}
       className="container mx-auto py-20 flex flex-col items-center gap-10"
     >
+      <PageTitle title="Manage Services" />
       <h2 className="text-3xl font-medium">Manage services</h2>
       <div className="overflow-x-auto">
         <table className="table w-full">

@@ -54,16 +54,19 @@ const Navbar = ({ setNavbarHeight }) => {
             <li>
               <Link to="/services">Services</Link>
             </li>
-            {user ? (
-              <li>
-                <Link to="/add-service">Add Service</Link>
-              </li>
-            ) : null}
-            {user ? (
-              <li>
-                <Link to="/manage-services">Manage Services</Link>
-              </li>
-            ) : null}
+            {user && (
+              <>
+                <li>
+                  <Link to="/add-service">Add Service</Link>
+                </li>
+                <li>
+                  <Link to="/manage-services">Manage Services</Link>
+                </li>
+                <li>
+                  <Link to="/orders">Orders</Link>
+                </li>
+              </>
+            )}
             <li>
               <Link to="/mechanics">Mechanics</Link>
             </li>
@@ -87,16 +90,19 @@ const Navbar = ({ setNavbarHeight }) => {
           <li>
             <Link to="/services">Services</Link>
           </li>
-          {user ? (
-            <li>
-              <Link to="/add-service">Add Service</Link>
-            </li>
-          ) : null}
-          {user ? (
-            <li>
-              <Link to="/manage-services">Manage Services</Link>
-            </li>
-          ) : null}
+          {user && (
+            <>
+              <li>
+                <Link to="/add-service">Add Service</Link>
+              </li>
+              <li>
+                <Link to="/manage-services">Manage Services</Link>
+              </li>
+              <li>
+                <Link to="/orders">Orders</Link>
+              </li>
+            </>
+          )}
           <li>
             <Link to="/mechanics">Mechanics</Link>
           </li>
@@ -110,7 +116,9 @@ const Navbar = ({ setNavbarHeight }) => {
       </div>
       <div className="navbar-end flex items-center gap-5">
         {user?.displayName && (
-          <p className="font-medium">Hello, {user.displayName}</p>
+          <p className="font-medium hidden sm:inline-block">
+            Hello, {user.displayName}
+          </p>
         )}
         {user ? (
           <button onClick={handleLogout} className="btn btn-secondary">

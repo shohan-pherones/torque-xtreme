@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import PageTitle from "../components/PageTitle";
 
 const AddService = ({ navbarHeight }) => {
   const { register, handleSubmit, reset } = useForm();
@@ -25,6 +26,7 @@ const AddService = ({ navbarHeight }) => {
       style={{ marginTop: `${navbarHeight}px` }}
       className="container mx-auto py-20 flex flex-col gap-10 items-center"
     >
+      <PageTitle title="Add Service" />
       <h2 className="text-center text-3xl font-medium">Add a service</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}

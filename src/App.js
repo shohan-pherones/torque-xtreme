@@ -17,6 +17,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AddService from "./pages/AddService";
 import ManageServices from "./pages/ManageServices";
+import Orders from "./pages/Orders";
 
 const App = () => {
   const [navbarHeight, setNavbarHeight] = useState("");
@@ -68,7 +69,7 @@ const App = () => {
             element={<Register navbarHeight={navbarHeight} />}
           />
           <Route
-            path="/checkout"
+            path="/checkout/:id"
             element={
               <RequireAuth>
                 <Checkout navbarHeight={navbarHeight} />
@@ -88,6 +89,14 @@ const App = () => {
             element={
               <RequireAuth>
                 <ManageServices navbarHeight={navbarHeight} />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/orders"
+            element={
+              <RequireAuth>
+                <Orders navbarHeight={navbarHeight} />
               </RequireAuth>
             }
           />
