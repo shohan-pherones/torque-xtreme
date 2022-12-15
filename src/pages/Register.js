@@ -8,6 +8,7 @@ import auth from "../firebase.init";
 import SocialLogin from "../components/SocialLogin";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
+import PageTitle from "../components/PageTitle";
 
 const Register = ({ navbarHeight }) => {
   const [name, setName] = useState("");
@@ -72,6 +73,7 @@ const Register = ({ navbarHeight }) => {
       className="hero min-h-screen bg-base-100"
       style={{ marginTop: `${navbarHeight}px` }}
     >
+      <PageTitle title="Register" />
       <div className="hero-content flex-col">
         <div className="text-center">
           <h1 className="text-5xl font-bold">Register</h1>

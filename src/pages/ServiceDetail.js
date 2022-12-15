@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { currencyFormatter } from "../utilities/currencyFormatter";
+import PageTitle from "../components/PageTitle";
 
 const ServiceDetail = ({ navbarHeight }) => {
   const { id } = useParams();
@@ -12,6 +13,7 @@ const ServiceDetail = ({ navbarHeight }) => {
       className="hero min-h-screen bg-base-100 py-20"
       style={{ marginTop: `${navbarHeight}px` }}
     >
+      <PageTitle title={service?.title || "Service Details"} />
       <div className="hero-content flex-col gap-10 items-start">
         <img
           src={service?.image}
