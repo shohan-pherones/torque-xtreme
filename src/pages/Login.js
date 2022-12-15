@@ -9,6 +9,7 @@ import SocialLogin from "../components/SocialLogin";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 import PageTitle from "../components/PageTitle";
+import axios from "axios";
 
 const Login = ({ navbarHeight }) => {
   const [email, setEmail] = useState("");
@@ -53,14 +54,16 @@ const Login = ({ navbarHeight }) => {
   }
 
   if (user) {
-    navigate(from, { replace: true });
     toast.success("You're logged in!");
   }
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post("http://localhost:5000/login", { email });
+    localStorage.setItem("accessToken", data.accessToken);
+    navigate(from, { replace: true });
 
     setEmail("");
     setPassword("");
