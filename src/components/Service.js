@@ -1,13 +1,7 @@
 import { Link } from "react-router-dom";
+import { currencyFormatter } from "../utilities/currencyFormatter";
 
 const Service = ({ service }) => {
-  const currencyFormatter = (price) => {
-    return price?.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    });
-  };
-
   return (
     <div className="card w-96 bg-base-100 shadow-lg">
       <figure>

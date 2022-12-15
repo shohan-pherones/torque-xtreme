@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
+import Logo from "../assets/images/logo.png";
 
 const Navbar = ({ setNavbarHeight }) => {
   const navbarRef = useRef(null);
@@ -65,7 +66,7 @@ const Navbar = ({ setNavbarHeight }) => {
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-          Torque Xtreme
+          <img src={Logo} alt="Torque Xtreme logo" className="h-full" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
