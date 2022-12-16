@@ -1,8 +1,7 @@
-import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
+import { BsGithub, BsGoogle } from "react-icons/bs";
 import {
   useSignInWithGoogle,
   useSignInWithGithub,
-  useSignInWithFacebook,
 } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -13,9 +12,7 @@ import { useToken } from "../hooks/useToken";
 const SocialLogin = ({ label }) => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const [signInWithGithub, user2, loading2, error2] = useSignInWithGithub(auth);
-  const [signInWithFacebook, user3, loading3, error3] =
-    useSignInWithFacebook(auth);
-  const [token] = useToken(user || user2 || user3);
+  const [token] = useToken(user || user2);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -23,11 +20,11 @@ const SocialLogin = ({ label }) => {
 
   let errorEl;
 
-  if (loading || loading2 || loading3) {
+  if (loading || loading2) {
     return <Spinner />;
   }
 
-  if (error || error2 || error3) {
+  if (error || error2) {
     errorEl = (
       <div className="alert alert-error shadow-lg">
         <div>
@@ -44,7 +41,7 @@ const SocialLogin = ({ label }) => {
               d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <span>{error?.message || error2?.message || error3?.message}</span>
+          <span>{error?.message || error2?.message}</span>
         </div>
       </div>
     );
@@ -63,12 +60,6 @@ const SocialLogin = ({ label }) => {
         className="btn btn-secondary flex items-center gap-2"
       >
         <BsGoogle /> {label} with Google
-      </button>
-      <button
-        onClick={() => signInWithFacebook()}
-        className="btn btn-secondary flex items-center gap-2"
-      >
-        <BsFacebook /> {label} with Facebook
       </button>
       <button
         onClick={() => signInWithGithub()}
