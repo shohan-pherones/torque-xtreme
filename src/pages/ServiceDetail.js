@@ -6,7 +6,9 @@ import PageTitle from "../components/PageTitle";
 const ServiceDetail = ({ navbarHeight }) => {
   const { id } = useParams();
 
-  const { data: service } = useFetch(`http://localhost:5000/services/${id}`);
+  const { data: service } = useFetch(
+    `${process.env.REACT_APP_XTREME_URL}/services/${id}`
+  );
 
   return (
     <div

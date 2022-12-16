@@ -6,7 +6,7 @@ const AddService = ({ navbarHeight }) => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
-    const url = "http://localhost:5000/services";
+    const url = "process.env.REACT_APP_XTREME_URL/services";
 
     fetch(url, {
       method: "POST",

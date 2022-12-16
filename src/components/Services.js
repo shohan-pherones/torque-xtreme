@@ -6,7 +6,7 @@ const Services = ({ navbarHeight }) => {
     data: services,
     loading,
     error,
-  } = useFetch("http://localhost:5000/services");
+  } = useFetch(`${process.env.REACT_APP_XTREME_URL}/services`);
 
   return (
     <div

@@ -9,7 +9,9 @@ import { toast } from "react-toastify";
 
 const Checkout = ({ navbarHeight }) => {
   const { id } = useParams();
-  const { data: service } = useFetch(`http://localhost:5000/services/${id}`);
+  const { data: service } = useFetch(
+    `${process.env.REACT_APP_XTREME_URL}/services/${id}`
+  );
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -27,15 +29,17 @@ const Checkout = ({ navbarHeight }) => {
       time: new Date().toISOString(),
     };
 
-    axios.post("http://localhost:5000/orders", order).then((res) => {
-      const { data } = res;
+    axios
+      .post(`${process.env.REACT_APP_XTREME_URL}/orders`, order)
+      .then((res) => {
+        const { data } = res;
 
-      if (data.insertedId) {
-        toast("Your order has been placed successfully!");
-        e.target.reset();
-        navigate("/");
-      }
-    });
+        if (data.insertedId) {
+          toast("Your order has been placed successfully!");
+          e.target.reset();
+          navigate("/");
+        }
+      });
   };
 
   return (

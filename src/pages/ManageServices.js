@@ -5,14 +5,14 @@ import PageTitle from "../components/PageTitle";
 
 const ManageServices = ({ navbarHeight }) => {
   const { data: services, setData: setServices } = useFetch(
-    "http://localhost:5000/services"
+    "process.env.REACT_APP_XTREME_URL/services"
   );
 
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure want to delete this service?");
 
     if (proceed) {
-      fetch(`http://localhost:5000/services/${id}`, {
+      fetch(`${process.env.REACT_APP_XTREME_URL}/services/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
