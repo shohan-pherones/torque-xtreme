@@ -52,9 +52,9 @@ const ManageServices = ({ navbarHeight }) => {
                 <th>
                   <button
                     onClick={() => handleDelete(service._id)}
-                    className="btn btn-outline"
+                    className={`btn btn-outline ${i <= 8 && "btn-disabled"}`}
                   >
-                    Delete
+                    {i <= 8 ? "Admin Control" : "Delete"}
                   </button>
                 </th>
               </tr>
