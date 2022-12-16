@@ -10,8 +10,6 @@ import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Services from "./components/Services";
-import Mechanics from "./components/Mechanics";
 import RequireAuth from "./components/RequireAuth";
 import ServiceDetail from "./pages/ServiceDetail";
 import Checkout from "./pages/Checkout";
@@ -41,16 +39,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home navbarHeight={navbarHeight} />} />
           <Route
-            path="/services"
-            element={<Services navbarHeight={navbarHeight} />}
-          />
-          <Route
             path="/service/:id"
             element={<ServiceDetail navbarHeight={navbarHeight} />}
-          />
-          <Route
-            path="/mechanics"
-            element={<Mechanics navbarHeight={navbarHeight} />}
           />
           <Route
             path="/about"

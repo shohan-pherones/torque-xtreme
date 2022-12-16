@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const Hero = () => {
   return (
@@ -20,9 +20,9 @@ const Hero = () => {
             follow their advice. If you don't intend to follow their advice, you
             simply don't trust them.
           </p>
-          <Link to="/services" className="btn btn-primary text-xl">
+          <AnchorLink href="#services" className="btn btn-primary text-xl">
             Let's repair your car
-          </Link>
+          </AnchorLink>
         </div>
       </div>
     </div>

@@ -51,9 +51,6 @@ const Navbar = ({ setNavbarHeight }) => {
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/services">Services</Link>
-            </li>
             {user && (
               <>
                 <li>
@@ -67,9 +64,6 @@ const Navbar = ({ setNavbarHeight }) => {
                 </li>
               </>
             )}
-            <li>
-              <Link to="/mechanics">Mechanics</Link>
-            </li>
             <li>
               <Link to="/about">About</Link>
             </li>
@@ -87,9 +81,6 @@ const Navbar = ({ setNavbarHeight }) => {
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/services">Services</Link>
-          </li>
           {user && (
             <>
               <li>
@@ -103,9 +94,6 @@ const Navbar = ({ setNavbarHeight }) => {
               </li>
             </>
           )}
-          <li>
-            <Link to="/mechanics">Mechanics</Link>
-          </li>
           <li>
             <Link to="/about">About</Link>
           </li>

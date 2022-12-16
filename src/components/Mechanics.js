@@ -1,14 +1,11 @@
 import Mechanic from "./Mechanic";
 import { useFetch } from "../hooks/useFetch";
 
-const Mechanics = ({ navbarHeight }) => {
+const Mechanics = () => {
   const { data: mechanics, loading, error } = useFetch("mechanics.json");
 
   return (
-    <div
-      className="container mx-auto py-20"
-      style={{ marginTop: `${navbarHeight}px` }}
-    >
+    <div id="#mechanics" className="container mx-auto py-20">
       <h2 className="text-center mb-10 text-4xl font-semibold">
         Our Mechanics
       </h2>
