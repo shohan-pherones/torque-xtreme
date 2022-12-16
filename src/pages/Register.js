@@ -9,6 +9,7 @@ import SocialLogin from "../components/SocialLogin";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 import PageTitle from "../components/PageTitle";
+import { useToken } from "../hooks/useToken";
 
 const Register = ({ navbarHeight }) => {
   const [name, setName] = useState("");
@@ -19,6 +20,7 @@ const Register = ({ navbarHeight }) => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, error2] = useUpdateProfile(auth);
+  const [token] = useToken(user);
 
   const navigate = useNavigate();
 
@@ -47,7 +49,8 @@ const Register = ({ navbarHeight }) => {
     );
   }
 
-  if (user) {
+  if (token) {
+    navigate("/");
     toast.success("Account created successfully!");
   }
 
@@ -60,8 +63,6 @@ const Register = ({ navbarHeight }) => {
 
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
-    console.log("update profile");
-    navigate("/");
 
     setName("");
     setEmail("");

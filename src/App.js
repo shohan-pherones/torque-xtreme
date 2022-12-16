@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -13,8 +15,6 @@ import Mechanics from "./components/Mechanics";
 import RequireAuth from "./components/RequireAuth";
 import ServiceDetail from "./pages/ServiceDetail";
 import Checkout from "./pages/Checkout";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import AddService from "./pages/AddService";
 import ManageServices from "./pages/ManageServices";
 import Orders from "./pages/Orders";

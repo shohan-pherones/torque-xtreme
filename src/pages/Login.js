@@ -9,7 +9,7 @@ import SocialLogin from "../components/SocialLogin";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 import PageTitle from "../components/PageTitle";
-import axios from "axios";
+import { useToken } from "../hooks/useToken";
 
 const Login = ({ navbarHeight }) => {
   const [email, setEmail] = useState("");
@@ -21,6 +21,7 @@ const Login = ({ navbarHeight }) => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  const [token] = useToken(user);
 
   const navigate = useNavigate();
 
@@ -53,20 +54,15 @@ const Login = ({ navbarHeight }) => {
     return <Spinner />;
   }
 
-  if (user) {
+  if (token) {
     toast.success("You're logged in!");
+    navigate(from, { replace: true });
   }
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     await signInWithEmailAndPassword(email, password);
-    const { data } = await axios.post(
-      `${process.env.REACT_APP_XTREME_URL}/login`,
-      { email }
-    );
-    localStorage.setItem("accessToken", data.accessToken);
-    navigate(from, { replace: true });
 
     setEmail("");
     setPassword("");

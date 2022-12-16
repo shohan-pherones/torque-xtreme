@@ -8,12 +8,14 @@ import auth from "../firebase.init";
 import { useLocation, useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
+import { useToken } from "../hooks/useToken";
 
 const SocialLogin = ({ label }) => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const [signInWithGithub, user2, loading2, error2] = useSignInWithGithub(auth);
   const [signInWithFacebook, user3, loading3, error3] =
     useSignInWithFacebook(auth);
+  const [token] = useToken(user || user2 || user3);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -48,7 +50,7 @@ const SocialLogin = ({ label }) => {
     );
   }
 
-  if (user || user2 || user3) {
+  if (token) {
     navigate(from, { replace: true });
     toast.success("You're logged in!");
   }

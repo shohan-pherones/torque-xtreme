@@ -1,12 +1,15 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import PageTitle from "../components/PageTitle";
 
 const AddService = ({ navbarHeight }) => {
   const { register, handleSubmit, reset } = useForm();
 
+  const navigate = useNavigate();
+
   const onSubmit = (data) => {
-    const url = "process.env.REACT_APP_XTREME_URL/services";
+    const url = `${process.env.REACT_APP_XTREME_URL}/services`;
 
     fetch(url, {
       method: "POST",
@@ -16,7 +19,10 @@ const AddService = ({ navbarHeight }) => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then(() => toast.success(`${data.title} service added!`));
+      .then(() => {
+        navigate("/");
+        toast.success(`${data.title} service added!`);
+      });
 
     reset();
   };
