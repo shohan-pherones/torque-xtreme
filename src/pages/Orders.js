@@ -4,17 +4,35 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import PageTitle from "../components/PageTitle";
 import { currencyFormatter } from "../utilities/currencyFormatter";
+import { useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { toast } from "react-toastify";
 
 const Orders = ({ navbarHeight }) => {
   const [user] = useAuthState(auth);
   const [orders, setOrders] = useState([]);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const getOrders = async () => {
-      const { data } = await axios.get(
-        `http://localhost:5000/orders?email=${user.email}`
-      );
-      setOrders(data);
+      try {
+        const { data } = await axios.get(
+          `http://localhost:5000/orders?email=${user.email}`,
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          }
+        );
+        setOrders(data);
+      } catch (err) {
+        if (err.response.status === 401 || err.response.status === 403) {
+          toast.error(`You're logged out due to ${err.message}`);
+          signOut(auth);
+          navigate("/login");
+        }
+      }
     };
 
     getOrders();
@@ -42,7 +60,7 @@ const Orders = ({ navbarHeight }) => {
               <tr key={order._id}>
                 <th>{i + 1}</th>
                 <td>{new Date(order.time).toLocaleDateString()}</td>
-                <td>{order.title}</td>
+                <td>{order.service}</td>
                 <td>{currencyFormatter(+order?.price)}</td>
               </tr>
             ))}
