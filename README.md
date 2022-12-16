@@ -25,11 +25,11 @@ npm i
 
 Don't forget to add the necessary environment variables for your app.
 
-### Client side link:
+### Client side live link:
 
 https://torque-xtreme.web.app
 
-### Server side link:
+### Server side repo link:
 
 https://github.com/shohan-pherones/torque-xtreme-server.git
 
