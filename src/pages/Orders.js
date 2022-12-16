@@ -18,7 +18,7 @@ const Orders = ({ navbarHeight }) => {
     const getOrders = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.REACT_APP_XTREME_URL}/orders?email=${user.email}`,
+          `${process.env.REACT_APP_XTREME_URL}/orders?email=${user?.email}`,
           {
             headers: {
               authorization: `Bearer ${localStorage.getItem("accessToken")}`,
