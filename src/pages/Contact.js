@@ -4,6 +4,7 @@ const Contact = ({ navbarHeight }) => {
   return (
     <div style={{ marginTop: `${navbarHeight}px` }}>
       <PageTitle title="Contact" />
+      <h1>Contact</h1>
     </div>
   );
 };

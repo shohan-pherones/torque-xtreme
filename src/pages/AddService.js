@@ -27,7 +27,7 @@ const AddService = ({ navbarHeight }) => {
       className="container mx-auto py-20 flex flex-col gap-10 items-center"
     >
       <PageTitle title="Add Service" />
-      <h2 className="text-center text-3xl font-medium">Add a service</h2>
+      <h2 className="text-center text-3xl font-medium">Add a Service</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-5 max-w-xl w-full"
